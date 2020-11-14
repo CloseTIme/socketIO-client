@@ -59,7 +59,10 @@ def format_socketIO_packet_data(path=None, ack_id=None, args=None):
     if ack_id is not None:
         socketIO_packet_data = str(ack_id) + socketIO_packet_data
     if path:
-        socketIO_packet_data = path + ',' + socketIO_packet_data
+        if socketIO_packet_data:
+            socketIO_packet_data = path + ',' + socketIO_packet_data
+        else:
+            socketIO_packet_data = path
     return socketIO_packet_data
 
 
